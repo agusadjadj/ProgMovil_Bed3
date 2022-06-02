@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    //https://htmlcolorcodes.com/es/
+    //Bree-Serif Regular Font (Descargada en PC)
+
     <color name="white">#FFFFFFFF</color>
+
+    //Colores comunes
+    <color name="blue_UNL">#0088AA</color>  //Color logo UNL
+    <color name="K_30">#B3B3B3</color>  //K=30
+    <color name="K_70">#4D4D4D</color>  //K=70
+    <color name="K_80">#333333</color>  //K=80 utilizado p acompañar logo de unidad académica
+    <color name="K_100">#000000</color> //K=100
+
+    //Colores de unidades académicas
+    <color name="FICH_color">#0079C1</color>        //Color de FICH
+    <color name="FBCB_ESS_color">#00A94F</color>    //Color de FBCB y ESS
+    <color name="FCA_color" >#B2BB1E</color>        //Color de FCA
+    <color name="FADU_color">#FFC425</color>        //Color de FADU
+    <color name="FHUC_ISM_color">#F9A351</color>    //Color de FHUC y ISM
+    <color name="FIQ_color" >#EF3E42</color>        //Color de FIQ
+    <color name="FCJS_color">#98002E</color>        //Color de FCJS
+    <color name="FMC_color" >#AF006E</color>        //Color de FCM
+    <color name="FCV_color" >#332A86</color>        //Color de FCV
+    <color name="FCE_color" >#003E7E</color>        //Color de FCE
+    <color name="ATE_color" >#75A432</color>        //Color de ATE
+
 </resources>
