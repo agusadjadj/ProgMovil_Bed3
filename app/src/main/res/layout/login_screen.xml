@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/FBCB_ESS_color">
+    >
 
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@color/blue_UNL"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="1dp"
@@ -15,14 +16,89 @@
         tools:ignore="MissingConstraints">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/mTextUNL"
             android:layout_width="match_parent"
-            android:layout_height="108dp"
+            android:layout_height="100dp"
+            android:gravity="center"
             android:fontFamily="@font/bree_serif_regular"
             android:text="UNL"
             android:textSize="90dp"
             android:textColor="@color/white"
             />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/mTextUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mTextUNL"
+            android:paddingTop="10dp"
+            android:paddingLeft="60dp"
+            android:text="Usuario"
+            android:textSize="25dp"
+            android:fontFamily="@font/itcfranklingothicstd_regular"
+            android:textColor="@color/K_100"
+
+            />
+
+        <TextView
+            android:id="@+id/textPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mTextUser"
+            android:layout_alignRight="@id/mTextUser"
+            android:paddingTop="10dp"
+            android:text="Contraseña"
+            android:textSize="25dp"
+            android:fontFamily="@font/itcfranklingothicstd_regular"
+            android:textColor="@color/K_100"
+
+            />
+
+        <EditText
+            android:id="@+id/editUser"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_above="@id/mTextUNL"
+            android:layout_alignBottom="@id/mTextUser"
+            android:layout_toEndOf="@id/mTextUser"
+            android:fontFamily="@font/bree_serif_regular"
+            android:textColor="@color/white"
+            />
+
+        <EditText
+            android:id="@+id/editPass"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_above="@id/mTextUser"
+            android:layout_alignBottom="@id/textPassword"
+            android:layout_toEndOf="@id/textPassword"
+            android:fontFamily="@font/bree_serif_regular"
+            android:textColor="@color/white"
+            />
+        <Button
+            android:id="@+id/buttonEnter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textPassword"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text="Entrar"
+
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buttonEnter"
+            android:layout_centerInParent="true"
+            android:drawableLeft="@mipmap/google_logo"
+            android:paddingStart="16dp"
+            android:text="Google"
+            android:textColor="@color/K_80"
+            android:background="@color/white"
+            android:textAlignment="textStart" />
+
+    </RelativeLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
