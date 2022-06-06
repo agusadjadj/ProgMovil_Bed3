@@ -16,21 +16,35 @@
         tools:ignore="MissingConstraints">
 
         <TextView
+            android:layout_marginTop="150dp"
             android:id="@+id/mTextUNL"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:fontFamily="@font/bree_serif_regular"
             android:text="UNL"
-            android:textSize="90dp"
+            android:textSize="100dp"
             android:textColor="@color/white"
             />
+
+        <TextView
+            android:id="@+id/mTextBED"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:fontFamily="@font/itcfranklingothicstd_deminegrita"
+            android:text="Bedelia Móvil"
+            android:textSize="40dp"
+            android:textColor="@color/white"
+            android:layout_below="@id/mTextUNL"
+            />
+
 
         <TextView
             android:id="@+id/mTextUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/mTextUNL"
+            android:layout_below="@id/mTextBED"
             android:paddingTop="10dp"
             android:paddingLeft="60dp"
             android:text="Usuario"
@@ -73,8 +87,7 @@
             android:layout_alignBottom="@id/textPassword"
             android:layout_toEndOf="@id/textPassword"
             android:fontFamily="@font/bree_serif_regular"
-            android:textColor="@color/white"
-            />
+            android:textColor="@color/white" />
         <Button
             android:id="@+id/buttonEnter"
             android:layout_width="wrap_content"
@@ -83,20 +96,36 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:text="Entrar"
-
+            android:textColor="@color/K_70"
             tools:ignore="HardcodedText" />
 
         <Button
+            android:id="@+id/buttonGoogle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/buttonEnter"
             android:layout_centerInParent="true"
             android:drawableLeft="@mipmap/google_logo"
             android:paddingStart="16dp"
-            android:text="Google"
-            android:textColor="@color/K_80"
+            android:text="Sign with Google"
+            android:textColor="@color/K_70"
             android:background="@color/white"
             android:textAlignment="textStart" />
+
+        <Button
+            android:id="@+id/buttonFacebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buttonGoogle"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:drawableLeft="@mipmap/google_logo"
+            android:paddingStart="16dp"
+            android:text="Sign with Facebbok"
+            android:textColor="@color/K_70"
+            android:background="@color/white"
+            android:textAlignment="textStart" />
+
 
     </RelativeLayout>
 
