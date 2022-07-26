@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    tools:ignore="ExtraText">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -69,18 +69,17 @@
             />
 
         <EditText
-            android:id="@+id/editUser"
+            android:id="@+id/mLoginUser"
             android:layout_width="250dp"
             android:layout_height="40dp"
             android:layout_above="@id/mTextUNL"
             android:layout_alignBottom="@id/mTextUser"
             android:layout_toEndOf="@id/mTextUser"
             android:fontFamily="@font/bree_serif_regular"
-            android:textColor="@color/white"
-            />
+            android:textColor="@color/white" />
 
         <EditText
-            android:id="@+id/editPass"
+            android:id="@+id/mLoginPass"
             android:layout_width="250dp"
             android:layout_height="40dp"
             android:layout_above="@id/mTextUser"
@@ -89,7 +88,7 @@
             android:fontFamily="@font/bree_serif_regular"
             android:textColor="@color/white" />
         <Button
-            android:id="@+id/buttonEnter"
+            android:id="@+id/mButtonEnter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/textPassword"
@@ -100,12 +99,12 @@
             tools:ignore="HardcodedText" />
 
         <Button
-            android:id="@+id/buttonGoogle"
-            android:layout_width="wrap_content"
+            android:id="@+id/mButtonGoogle"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/buttonEnter"
+            android:layout_below="@id/mButtonEnter"
             android:layout_centerInParent="true"
-            android:drawableLeft="@mipmap/google_logo"
+
             android:paddingStart="16dp"
             android:text="Sign with Google"
             android:textColor="@color/K_70"
@@ -113,21 +112,18 @@
             android:textAlignment="textStart" />
 
         <Button
-            android:id="@+id/buttonFacebook"
-            android:layout_width="wrap_content"
+            android:id="@+id/mButtonFacebook"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/buttonGoogle"
+            android:layout_below="@id/mButtonGoogle"
             android:layout_centerInParent="true"
             android:layout_marginTop="5dp"
-            android:drawableLeft="@mipmap/google_logo"
             android:paddingStart="16dp"
-            android:text="Sign with Facebbok"
+            android:text="Sign with Facebook"
             android:textColor="@color/K_70"
             android:background="@color/white"
             android:textAlignment="textStart" />
 
 
     </RelativeLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

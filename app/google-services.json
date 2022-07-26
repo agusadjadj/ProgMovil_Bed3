@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "135620529032-7jfeo2mrtp2rtuic3t94q493kmjd1fq5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.czerweny.tpfinal_dismov",
+            "certificate_hash": "d8b8431508f7d9e6fcc344cf5ba395ec0aafb98c"
+          }
+        },
+        {
           "client_id": "135620529032-qavqpr32k0n3tlblcg482pghkgdfhloh.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

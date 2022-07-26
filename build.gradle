@@ -5,13 +5,21 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:7.0.2"
-        classpath 'com.google.gms:google-services:4.3.10' //Servicios de Google
+        classpath 'com.android.tools.build:gradle:7.2.1'
+        classpath 'com.google.gms:google-services:4.3.13' //Servicios de Google
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 
+}
+
+allprojects {
+    repositories {
+        // Check that you have the following line (if not, add it):
+        google()  // Google's Maven repository
+
+    }
 }
 
 task clean(type: Delete) {
