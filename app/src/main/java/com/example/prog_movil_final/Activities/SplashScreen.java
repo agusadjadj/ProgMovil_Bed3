@@ -1,4 +1,4 @@
-package com.example.prog_movil_final;
+package com.example.prog_movil_final.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class splashScreen extends AppCompatActivity {
+import com.example.prog_movil_final.R;
+
+public class SplashScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +25,9 @@ public class splashScreen extends AppCompatActivity {
                 Intent i;
                 //Si existe dato de inicio de sesión
                 if (prefs.getString("email",null) != null) {
-                    i = new Intent(splashScreen.this, HomeActivity.class);
+                    i = new Intent(SplashScreen.this, HomeActivity.class);
                 } else {
-                    i = new Intent(splashScreen.this, AuthActivity.class);
+                    i = new Intent(SplashScreen.this, AuthActivity.class);
                 }
                 startActivity(i);
                 finish();

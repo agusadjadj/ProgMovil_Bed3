@@ -9,14 +9,14 @@
         android:icon="@drawable/common_google_signin_btn_icon_dark_normal_background"
         android:title="Noticias" />
     <item
-        android:id="@+id/nav_addblogs"
+        android:id="@+id/nav_Clases"
         android:icon="@drawable/common_google_signin_btn_icon_dark_normal_background"
-        android:title="Add Blogs" />
+        android:title="Clases" />
 
     <item
-        android:id="@+id/nav_chat"
+        android:id="@+id/nav_Materias"
         android:icon="@drawable/common_google_signin_btn_icon_dark_normal_background"
-        android:title="ChatList" />
+        android:title="Materias" />
     <item
         android:id="@+id/nav_profile"
         android:icon="@drawable/common_google_signin_btn_icon_dark_normal_background"

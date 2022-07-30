@@ -1,9 +1,8 @@
-package com.example.prog_movil_final;
+package com.example.prog_movil_final.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.Navigator;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,13 +14,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.prog_movil_final.Fragments.ClasesFragment;
 import com.example.prog_movil_final.Fragments.FragmentAgendaUNL;
 import com.example.prog_movil_final.Fragments.HomeFragment;
-import com.google.android.gms.auth.api.Auth;
+import com.example.prog_movil_final.Fragments.MateriasFragment;
+import com.example.prog_movil_final.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -49,6 +48,7 @@ public class HomeActivity extends AppCompatActivity {
 
         SharedPreferences.Editor prefs = getSharedPreferences(getString(R.string.prefs_file),Context.MODE_PRIVATE).edit();
         prefs.putString("email",accData.getEmail().toString());    //Guardo el correo
+        prefs.putString("nombre",accData.getDisplayName().toString());  //Guardo el nombre completo de la persona
         prefs.apply();
 
         //Si no es nulo, obtengo los datos que requiera
@@ -107,7 +107,7 @@ public class HomeActivity extends AppCompatActivity {
                     Log.e("DEBUG_SELECT_ITEM",menuItem.toString());
                     return true;
 
-                    //ToDo: (2) Agenda de la facultad (WS de agenda - https://www.unl.edu.ar/noticias/contents/getnewshome/limit:3).
+                    //ToDo: (2) Noticias de la facultad.
                 case R.id.nav_Noticias:
                     FragmentAgendaUNL agenda_Fragm = new FragmentAgendaUNL();
 //                    FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
@@ -115,20 +115,21 @@ public class HomeActivity extends AppCompatActivity {
                     fragmentTransact.commit();
                     Log.e("DEBUG_SELECT_ITEM",menuItem.toString());
                     return true;
-
-//                case R.id.nav_users:
-//                    UsersFragment fragment2 = new UsersFragment();
-//                    FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
-//                    fragmentTransaction2.replace(R.id.FragmentContent, fragment2, "");
-//                    fragmentTransaction2.commit();
-//                    return true;
+                //ToDo: (3) WS de Bedelía. Al hacer click, muestra que aula es.
+                case R.id.nav_Clases:
+                    ClasesFragment fragment2 = new ClasesFragment();
+                    FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction2.replace(R.id.FragmentContent, fragment2, "");
+                    fragmentTransaction2.commit();
+                    return true;
 //
-//                case R.id.nav_chat:
-//                    ChatListFragment listFragment = new ChatListFragment();
-//                    FragmentTransaction fragmentTransaction3 = getSupportFragmentManager().beginTransaction();
-//                    fragmentTransaction3.replace(R.id.FragmentContent, listFragment, "");
-//                    fragmentTransaction3.commit();
-//                    return true;
+                case R.id.nav_Materias:
+                    MateriasFragment listFragment = new MateriasFragment();
+                    FragmentTransaction fragmentTransaction3 = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction3.replace(R.id.FragmentContent, listFragment, "");
+                    fragmentTransaction3.commit();
+
+                    return true;
 //
 //                case R.id.nav_addblogs:
 //                    AddBlogsFragment fragment4 = new AddBlogsFragment();
@@ -151,8 +152,6 @@ public class HomeActivity extends AppCompatActivity {
     //ToDo: (1) Ubicaciones de las aulas / Edificios con planos (Con QR?) (Ejemplo en App Fadu)
     // Servicio de Google Maps con rectorado y otros edif
 
-
-
     //ToDo: (3) Cursos -> Mis Cursos donde estoy anotado (Con una lista previamente cargada)
     // Cursos actuales -> Obtener del WS de Bedelía y que muestre una lista con todos los cursos.
     // Autogestion estudiantil -> Enviar al SIU o al e-fich
@@ -163,3 +162,7 @@ public class HomeActivity extends AppCompatActivity {
     // Cuando te registras a un curso, te muestra los últimos mov del foro.
     // Se puede tener un foro de Q&A ?
 
+    //ToDo: (5) Calendar con https://bamideleomonayin.medium.com/a-simple-explanation-of-how-to-use-recyclerview-on-android-e8aec236b67f
+    // Calendario personalizado para las materias.
+    // Lista de proxima clase a las que esté suscripto (Segun el dia, deci tu horario de clase).
+    // Ver mis cursos. - Ir a SIU - Ir a e-fich - Agregar Recordatorio (Para Calendar)

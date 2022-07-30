@@ -1,0 +1,66 @@
+<androidx.cardview.widget.CardView
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#f2f1f0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    app:cardUseCompatPadding="true"
+    app:cardPreventCornerOverlap="true">
+
+        <RelativeLayout
+            android:id="@+id/relative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:scaleType="centerCrop"
+                android:padding="10dp"
+                android:layout_width="150dp"
+                android:layout_height="160dp"
+                android:id="@+id/newsImage"
+                />
+            <TextView
+                android:textColor="#000102"
+                android:textStyle="bold"
+                android:paddingLeft="4dp"
+                android:id="@+id/newsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Title Goes Here"
+                android:layout_toRightOf="@+id/newsImage"
+                />
+            <TextView
+                android:textStyle="italic"
+                android:layout_toRightOf="@+id/newsImage"
+                android:paddingLeft="4dp"
+                android:id="@+id/newsCopete"
+                android:textColor="@color/blue_UNL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description Goes Here"
+                android:layout_below="@+id/newsTitle"
+                />
+            <TextView
+                android:textSize="9dp"
+                android:paddingTop="10dp"
+                android:gravity="right"
+                android:textStyle="italic"
+                android:layout_toRightOf="@+id/newsImage"
+                android:paddingLeft="4dp"
+                android:id="@+id/newsTime"
+                android:textColor="@color/ATE_color"
+                android:layout_below="@+id/newsCopete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date Goes Here"
+                android:layout_alignParentLeft="false"
+                android:layout_alignParentRight="true"
+
+                />
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+

@@ -1,44 +1,38 @@
 package com.example.prog_movil_final.Fragments;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
+import androidx.fragment.app.Fragment;
+
+import com.example.prog_movil_final.Dialogs.DialogFragmentNoticia;
+import com.example.prog_movil_final.Clases.EventoAgenda;
+import com.example.prog_movil_final.Clases.JSONRequest;
 import com.example.prog_movil_final.R;
+import com.example.prog_movil_final.Clases.Utils;
+import com.example.prog_movil_final.Clases.VolleyCallBack;
+import com.example.prog_movil_final.Adapter.NewsAdapter;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class FragmentAgendaUNL extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private JSONRequest dataWService = new JSONRequest();
+    private ArrayList<EventoAgenda> newsList = new ArrayList<>();
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public FragmentAgendaUNL() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AgendaUNL.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FragmentAgendaUNL newInstance(String param1, String param2) {
+    public static FragmentAgendaUNL newInstance() {
         FragmentAgendaUNL fragment = new FragmentAgendaUNL();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -46,16 +40,77 @@ public class FragmentAgendaUNL extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        if (getArguments() != null) { }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_agenda_unl, container, false);
+        View view = inflater.inflate(R.layout.fragment_agenda_unl, container, false);
+
+        if(Utils.isConnected((ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE))){
+            //Está conectado a internet. Se puede cargar los datos.
+
+            //Jaja mirá esta magia para que ande en sync
+            dataWService.consultarNoticias(getContext(), new VolleyCallBack<EventoAgenda>() {
+                @Override
+                public void onSuccess(ArrayList<EventoAgenda> events) {
+                    //Me guardo el array generado en la llamada JSON para utilizarlo
+                    newsList = events;
+//                    Log.e("DEBUG_NEWS",String.valueOf(newsList.size()));
+                    // ToDo: Agregar OnListClick para que se abra la noticia detallada con mejor formatito
+
+                    //Función para ordenar por fecha de más nuevo a más viejo
+                    Collections.sort(newsList, new Comparator<EventoAgenda>() {
+                        @Override
+                        public int compare(EventoAgenda t1, EventoAgenda t2) {
+                            //Ordeno de más nuevo a más viejo
+                            return t2.getTime().compareTo(t1.getTime());
+                        }
+                    });
+
+                    //Me traigo la listview para cargarle los adapters
+                    ListView listViewMain = view.findViewById(R.id.listNewsMain);
+                    //Seteo el adapter para poder cargar los datos
+                    NewsAdapter newsAdapter = new NewsAdapter(getActivity(),newsList);
+                    listViewMain.setAdapter(newsAdapter);
+
+                    listViewMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                            showNoticiaCompleta(position);
+
+                        }
+                    });
+//                    Log.e("LV_ADAPTER",String.valueOf(newsList.size()));
+                }
+            });
+
+        }else{
+            //No está conectado a internet. No se pueden renovar los datos.
+            //ToDo: Pantalla de no hay conexión a internet, aparte de la que se usa para la lista.
+        }
+
+        return view;
+    }
+
+    public void showNoticiaCompleta(int position){
+
+        DialogFragmentNoticia displayNoticia = new DialogFragmentNoticia();
+        Bundle args = new Bundle();
+        //Paso los argumentos necesarios para mostrar
+        args.putString("Titulo",newsList.get(position).getTitle());
+        args.putString("Cuerpo",newsList.get(position).getBody());
+        args.putString("Volanta",newsList.get(position).getVolanta());
+        args.putString("Imagen",newsList.get(position).getPathImage());
+        args.putString("Fecha",newsList.get(position).getTime());
+
+        displayNoticia.setArguments(args);
+        //Muestro la ventana emergente.
+        displayNoticia.show(getFragmentManager(),"MyTag");
+
     }
 }
