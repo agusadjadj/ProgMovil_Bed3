@@ -140,6 +140,7 @@ public class DetalleMateriaActivity extends AppCompatActivity implements DialogA
                             .delete();
                     estaSuscripto=false;
                     suscribMat.setText("SUSCRIBIRSE");
+
                 }
 
             }

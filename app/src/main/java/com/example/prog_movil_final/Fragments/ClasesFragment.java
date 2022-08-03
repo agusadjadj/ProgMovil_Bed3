@@ -46,8 +46,7 @@ public class ClasesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_clases, container, false);
-//        View view = super.onCreateView(inflater, container, savedInstanceState);
-//        Log.e("DEBUG_LINK",dataWService.prueba());
+
         if(Utils.isConnected((ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE))){
             //Está conectado a internet. Se puede cargar los datos.
 
@@ -58,7 +57,7 @@ public class ClasesFragment extends Fragment {
                 public void onSuccess(ArrayList<Clase> clases) {
                     //Me guardo el array generado en la llamada JSON para utilizarlo
                     clasesDiaria = clases;
-//                    Log.e("DEBUG_CLASE_DIARIA_AREA: ",clasesDiaria.get(1).getArea());
+
                     // ToDo: Agregar OnListClick para que se abra el aula donde es la clase
 
                     //Me traigo la listview para cargarle los adapters

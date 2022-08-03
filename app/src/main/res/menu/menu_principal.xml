@@ -18,8 +18,8 @@
         android:icon="@drawable/common_google_signin_btn_icon_dark_normal_background"
         android:title="Materias" />
     <item
-        android:id="@+id/nav_profile"
+        android:id="@+id/nav_aulas"
         android:icon="@drawable/common_google_signin_btn_icon_dark_normal_background"
-        android:title="Profile" />
+        android:title="Aulas" />
 
 </menu>

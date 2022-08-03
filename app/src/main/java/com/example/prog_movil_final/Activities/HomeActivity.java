@@ -14,6 +14,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.prog_movil_final.Clases.DBHandler;
+import com.example.prog_movil_final.Clases.Utils;
+import com.example.prog_movil_final.Fragments.AulasFragment;
 import com.example.prog_movil_final.Fragments.ClasesFragment;
 import com.example.prog_movil_final.Fragments.FragmentAgendaUNL;
 import com.example.prog_movil_final.Fragments.HomeFragment;
@@ -30,17 +33,22 @@ public class HomeActivity extends AppCompatActivity {
     //Informaciòn extra
     Button logOut;
     TextView welcomeInfo;
+    DBHandler db = new DBHandler(HomeActivity.this);
 
     //NavigationBottom para generar el paso entre fragments
     BottomNavigationView navView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
         logOut = (Button) findViewById(R.id.logoutButton);
         welcomeInfo = (TextView) findViewById(R.id.TextPersonName);
+
+//        Utils.loadDatabase(HomeActivity.this);
 
         //-----POST INICIO DE SESIÓN-----//
         //Obtener dato de la cuenta de la sesión
@@ -115,6 +123,7 @@ public class HomeActivity extends AppCompatActivity {
                     fragmentTransact.commit();
                     Log.e("DEBUG_SELECT_ITEM",menuItem.toString());
                     return true;
+
                 //ToDo: (3) WS de Bedelía. Al hacer click, muestra que aula es.
                 case R.id.nav_Clases:
                     ClasesFragment fragment2 = new ClasesFragment();
@@ -122,21 +131,22 @@ public class HomeActivity extends AppCompatActivity {
                     fragmentTransaction2.replace(R.id.FragmentContent, fragment2, "");
                     fragmentTransaction2.commit();
                     return true;
-//
+
+                //ToDo: (4) Listado de las materias para suscribirse y ver información
                 case R.id.nav_Materias:
                     MateriasFragment listFragment = new MateriasFragment();
                     FragmentTransaction fragmentTransaction3 = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction3.replace(R.id.FragmentContent, listFragment, "");
                     fragmentTransaction3.commit();
-
                     return true;
-//
-//                case R.id.nav_addblogs:
-//                    AddBlogsFragment fragment4 = new AddBlogsFragment();
-//                    FragmentTransaction fragmentTransaction4 = getSupportFragmentManager().beginTransaction();
-//                    fragmentTransaction4.replace(R.id.FragmentContent, fragment4, "");
-//                    fragmentTransaction4.commit();
-//                    return true;
+
+                //ToDo: (5) Navegación a traves de las aulas y su mapa (Con Zoom)
+                case R.id.nav_aulas:
+                    AulasFragment fragment4 = new AulasFragment();
+                    FragmentTransaction fragmentTransaction4 = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction4.replace(R.id.FragmentContent, fragment4, "");
+                    fragmentTransaction4.commit();
+                    return true;
             }
             return false;
         }
@@ -145,24 +155,17 @@ public class HomeActivity extends AppCompatActivity {
 
 
     //ToDo: Activity Principal con botones. Al pulsar un botón, se inicia un fragment. Los fragments para volver para atras hay que tener en cuenta el onBackPressed
-    // Integracion de CuandoPasa ? Integración de Clima ?
+    // Integración de Clima (https://www.geeksforgeeks.org/how-to-build-a-weather-app-in-android/)
+
     //https://stackoverflow.com/questions/5448653/how-to-implement-onbackpressed-in-fragments
     //https://stackoverflow.com/questions/63751166/how-can-multiple-buttons-in-fragment-load-different-data
+
     //ToDo: Botones Principales
-    //ToDo: (1) Ubicaciones de las aulas / Edificios con planos (Con QR?) (Ejemplo en App Fadu)
     // Servicio de Google Maps con rectorado y otros edif
 
-    //ToDo: (3) Cursos -> Mis Cursos donde estoy anotado (Con una lista previamente cargada)
-    // Cursos actuales -> Obtener del WS de Bedelía y que muestre una lista con todos los cursos.
-    // Autogestion estudiantil -> Enviar al SIU o al e-fich
+    //ToDo:
     // Si una clase se suspende, notificación al celu de que se suspendio. La cagada es que puede que te lleguen
     // notific de clases que no te importan.
 
-    //ToDo: (4) Foros -> Subir material con link de donde bajarlo y dejando ver quien lo puso. (DB)
-    // Cuando te registras a un curso, te muestra los últimos mov del foro.
-    // Se puede tener un foro de Q&A ?
-
     //ToDo: (5) Calendar con https://bamideleomonayin.medium.com/a-simple-explanation-of-how-to-use-recyclerview-on-android-e8aec236b67f
     // Calendario personalizado para las materias.
-    // Lista de proxima clase a las que esté suscripto (Segun el dia, deci tu horario de clase).
-    // Ver mis cursos. - Ir a SIU - Ir a e-fich - Agregar Recordatorio (Para Calendar)
