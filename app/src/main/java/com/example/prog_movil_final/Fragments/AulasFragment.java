@@ -80,7 +80,7 @@ public class AulasFragment extends Fragment {
         ArrayAdapter<String> adapterAulas = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1, aulas);
         listAulas.setAdapter(adapterAulas);
 
-
+        //ToDo: Poner en el Spinner -> Seleccionar aula y que no aparezca nada de una
         listAulas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View contextView, int position, long l) {

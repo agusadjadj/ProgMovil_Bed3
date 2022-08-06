@@ -7,12 +7,14 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.prog_movil_final.Clases.DBHandler;
 import com.example.prog_movil_final.Clases.Utils;
@@ -24,9 +26,13 @@ import com.example.prog_movil_final.Fragments.MateriasFragment;
 import com.example.prog_movil_final.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.example.prog_movil_final.Clases.Utils;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -44,11 +50,33 @@ public class HomeActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        if(!Utils.doesDatabaseExist(HomeActivity.this,"BedeliaDB")){
+            Utils.loadDatabase(HomeActivity.this);
+        }
         logOut = (Button) findViewById(R.id.logoutButton);
         welcomeInfo = (TextView) findViewById(R.id.TextPersonName);
 
-//        Utils.loadDatabase(HomeActivity.this);
+
+        //-----Cargo las notificaciones y el token-----//
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w("", "Fetching FCM registration token failed", task.getException());
+                            return;
+                        }
+
+                        // Get new FCM registration token
+                        String token = task.getResult();
+
+                        // Log and toast
+                        Log.e("MSG_TOKEN", token);
+//                        Toast.makeText(HomeActivity.this, token, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
 
         //-----POST INICIO DE SESIÓN-----//
         //Obtener dato de la cuenta de la sesión
@@ -63,6 +91,7 @@ public class HomeActivity extends AppCompatActivity {
         if(accData!=null){
 //            Log.e("retrieveDatafromUser",accData.getPhotoUrl().toString());
             welcomeInfo.setText("Bienvenido "+accData.getDisplayName().toString());
+//            Log.e("DEBUG_VERSION", String.valueOf(Build.VERSION.SDK_INT));
         }
 
         //Retrieve data de Google Account
@@ -154,18 +183,12 @@ public class HomeActivity extends AppCompatActivity {
 }
 
 
-    //ToDo: Activity Principal con botones. Al pulsar un botón, se inicia un fragment. Los fragments para volver para atras hay que tener en cuenta el onBackPressed
-    // Integración de Clima (https://www.geeksforgeeks.org/how-to-build-a-weather-app-in-android/)
+
 
     //https://stackoverflow.com/questions/5448653/how-to-implement-onbackpressed-in-fragments
     //https://stackoverflow.com/questions/63751166/how-can-multiple-buttons-in-fragment-load-different-data
 
-    //ToDo: Botones Principales
-    // Servicio de Google Maps con rectorado y otros edif
 
     //ToDo:
-    // Si una clase se suspende, notificación al celu de que se suspendio. La cagada es que puede que te lleguen
-    // notific de clases que no te importan.
-
-    //ToDo: (5) Calendar con https://bamideleomonayin.medium.com/a-simple-explanation-of-how-to-use-recyclerview-on-android-e8aec236b67f
-    // Calendario personalizado para las materias.
+    // Dejar linda toda la aplicación, definir todos los tipos de colores e iconos, formatos, fuentes, etc..
+    // Todos los eventos onClick ponerselo al XML

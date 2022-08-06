@@ -60,7 +60,6 @@ public class FragmentAgendaUNL extends Fragment {
                     //Me guardo el array generado en la llamada JSON para utilizarlo
                     newsList = events;
 //                    Log.e("DEBUG_NEWS",String.valueOf(newsList.size()));
-                    // ToDo: Agregar OnListClick para que se abra la noticia detallada con mejor formatito
 
                     //Función para ordenar por fecha de más nuevo a más viejo
                     Collections.sort(newsList, new Comparator<EventoAgenda>() {

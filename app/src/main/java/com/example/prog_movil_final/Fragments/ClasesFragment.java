@@ -58,8 +58,6 @@ public class ClasesFragment extends Fragment {
                     //Me guardo el array generado en la llamada JSON para utilizarlo
                     clasesDiaria = clases;
 
-                    // ToDo: Agregar OnListClick para que se abra el aula donde es la clase
-
                     //Me traigo la listview para cargarle los adapters
                     ListView listViewMain = view.findViewById(R.id.listClasesMain);
                     //Seteo el adapter para poder cargar los datos

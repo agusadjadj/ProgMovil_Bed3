@@ -7,7 +7,7 @@
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">Hello Square World!</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="FICH_GeoPos">https://www.google.com/maps/place/FICH+-+Facultad+de+Ingenier%C3%ADa+y+Ciencias+H%C3%ADdricas/@-31.6401439,-60.6727325,17.71z/data=!4m5!3m4!1s0x95b5a9870d11e0cd:0xd04342d58eef29c0!8m2!3d-31.6399087!4d-60.6721022</string>
+    <string name="Rectorado_GeoPos">https://www.google.com/maps/place/Universidad+Nacional+del+Litoral+-+Rectorado/@-31.6354299,-60.704923,18.5z/data=!4m5!3m4!1s0x95b5a9c75f629401:0x1a94d367fe754a95!8m2!3d-31.6348576!4d-60.7051787</string>
 </resources>

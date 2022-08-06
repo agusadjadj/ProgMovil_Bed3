@@ -27,6 +27,8 @@ import com.example.prog_movil_final.Adapter.ReviewAdapter;
 import com.example.prog_movil_final.Clases.Review;
 import com.example.prog_movil_final.Clases.Utils;
 import com.example.prog_movil_final.Clases.VolleyCallBack;
+import com.example.prog_movil_final.Dialogs.DialogAgregarCalendario;
+import com.example.prog_movil_final.Dialogs.DialogAgregarComentario;
 import com.example.prog_movil_final.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -47,7 +49,7 @@ public class HomeFragment extends Fragment {
     ArrayList<Review> materiasSuscripto = new ArrayList<>();
     ListView listMateriasSuscripto;
     String emailAlumno;
-    Button ingresarSIU, ingresarEfich, addRecordatorio;
+    Button ingresarSIU, ingresarEfich, addRecordatorio, mapFICH, mapRectorado;
     ReviewAdapter comAdapter;
 
     public static HomeFragment newInstance() {
@@ -80,8 +82,10 @@ public class HomeFragment extends Fragment {
             ingresarSIU = view.findViewById(R.id.homeSIU);  //Boton para entrar al SIU
             ingresarEfich = view.findViewById(R.id.homeEfich);  //Boton para entrar al e-fich
             addRecordatorio = view.findViewById(R.id.homeRecordatorio); //Boton para agregar recordatorio
+            mapFICH = view.findViewById(R.id.homeMapFICH);  //Boton para ir al intent de map en fich
+            mapRectorado = view.findViewById(R.id.homeMapRectorado);    //Boton para ir al intent de map en rectorado
 
-            //ToDo: Tarda mucho cuando abre otra aplicación, hay que crear nuevos threads
+            //Tarda mucho cuando abre otra aplicación, hay que crear nuevos threads
             //Me cargo todos los cursos a los que está suscrito
             loadCursos(new VolleyCallBack<Review>() {
                 @Override
@@ -137,11 +141,40 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        addRecordatorio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogAgregarCalendario dialog = new DialogAgregarCalendario();
+                dialog.show(getActivity().getFragmentManager(), "MyTag");
+                //Cuando apreto ok, llama a la interfaz
+
+            }
+        });
+
+        mapFICH.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Creo el intent, tengo cargado el link de la posicion exacta
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.FICH_GeoPos)));
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
+            }
+        });
+
+        mapRectorado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Creo el intent, tengo cargado el link de la posicion exacta
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.Rectorado_GeoPos)));
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
+            }
+        });
+
         return view;
     }
 
     private void loadCursos(VolleyCallBack<Review> myCallback){
-
 
         dbFire.collection("Users")
                 .document(emailAlumno)

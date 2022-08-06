@@ -37,7 +37,6 @@ import java.util.Map;
 
 public class AuthActivity extends AppCompatActivity {
     //ToDo: Arreglar iconos de Google y Facebook
-    //ToDo: Registro con Correo de Google y datos personales para guardar en DB.
     private int GOOGLE_SIGN_IN = 100;
 
     //Base de datos de Firebase.

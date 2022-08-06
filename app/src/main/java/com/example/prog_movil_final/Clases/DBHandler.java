@@ -13,17 +13,18 @@ import java.util.ArrayList;
 
 public class DBHandler extends SQLiteOpenHelper {
 
+    Context context;
     private static final int DB_VERSION = 1;
     private static final String DB_NAME = "BedeliaDB";
     private static final String TABLE_Aulas = "Aulas";
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
     private static final String KEY_PISO = "piso";
-
     private static final String KEY_MAP = "plano";
 
     public DBHandler(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
+        this.context = context;
     }
 
 
@@ -34,8 +35,6 @@ public class DBHandler extends SQLiteOpenHelper {
                 + KEY_PISO + " INTEGER," + KEY_MAP + " INTEGER)";
         db.execSQL(CREATE_TABLE);
 
-
-
     }
 
     @Override
@@ -44,6 +43,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_Aulas);
         // Crea de nuevo la tabla
         onCreate(db);
+        db.close();
     }
 
     //Agregar un nuevo piso
@@ -72,7 +72,9 @@ public class DBHandler extends SQLiteOpenHelper {
             } while(cursor.moveToNext());
 
         }
+        db.close();
         return  aulasList;
+
     }
 
     @SuppressLint("Range")
@@ -85,6 +87,7 @@ public class DBHandler extends SQLiteOpenHelper {
         if(cursor != null && cursor.moveToFirst()) {
              piso = cursor.getString(cursor.getColumnIndex(KEY_PISO));
         }
+        db.close();
         if(piso.equals("0")) { return "PLANTA BAJA";}
         if(piso.equals("1") || piso.equals("2") || piso.equals("3")) { return "PISO " + piso; }
         if(piso.equals("5")) { return "NAVE"; }
@@ -103,7 +106,7 @@ public class DBHandler extends SQLiteOpenHelper {
         if(cursor != null && cursor.moveToFirst()) {
             plano = cursor.getString(cursor.getColumnIndex(KEY_MAP));
         }
-
+        db.close();
         return plano;
 
     }
@@ -111,6 +114,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public void clearAll(){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_Aulas,null,null);
+        db.close();
     }
 
 

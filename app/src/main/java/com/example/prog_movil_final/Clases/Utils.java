@@ -6,7 +6,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 
+import com.example.prog_movil_final.Activities.HomeActivity;
 import com.example.prog_movil_final.R;
+
+import java.io.File;
 
 public class Utils {
 
@@ -17,6 +20,12 @@ public class Utils {
             return true;
         else
             return false;
+    }
+
+    //Existencia de la base de datos
+    public static boolean doesDatabaseExist(Context context, String dbName) {
+        File dbFile = context.getDatabasePath(dbName);
+        return dbFile.exists();
     }
 
     public static void loadDatabase(Context context){
@@ -60,9 +69,7 @@ public class Utils {
         db.insertAula("Laboratorio de Química y Ambiente",2,R.drawable.p2_labqcaamb);
 
 
-
-
-
-
     }
+
+
 }
