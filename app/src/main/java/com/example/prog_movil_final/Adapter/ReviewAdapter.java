@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.prog_movil_final.Clases.Archivo;
@@ -18,10 +19,12 @@ public class ReviewAdapter extends BaseAdapter {
 
     private Context context;
     private ArrayList<Review> reviews;
+    private boolean home;
 
-    public ReviewAdapter(Context context, ArrayList<Review> reviews) {
+    public ReviewAdapter(Context context, ArrayList<Review> reviews, boolean home) {
         this.context = context;
         this.reviews = reviews;
+        this.home = home;
     }
 
     @Override
@@ -48,6 +51,12 @@ public class ReviewAdapter extends BaseAdapter {
 
         TextView autor = view.findViewById(R.id.revAutor);
         TextView coment = view.findViewById(R.id.revComentario);
+        ImageView image = view.findViewById(R.id.imViewHora);
+
+        if(home){
+            image.setImageResource(R.drawable.ic_materias);
+        }else image.setImageResource(R.drawable.ic_baseline_comment);
+
 
         Review file = (Review) getItem(position);
 

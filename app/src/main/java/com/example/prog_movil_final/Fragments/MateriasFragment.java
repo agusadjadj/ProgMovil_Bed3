@@ -94,7 +94,7 @@ public class MateriasFragment extends Fragment {
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Log.e("ERROR",e.getMessage().toString());
+//                            Log.e("ERROR",e.getMessage().toString());
                         }
                     });
 
@@ -107,7 +107,6 @@ public class MateriasFragment extends Fragment {
         listViewMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-//                Log.e("FLACOQUEHACES",listMaterias.get(position).toString());
                 Intent i = new Intent(getActivity(), DetalleMateriaActivity.class);
                 i.putExtra("nombreMateria",listMaterias.get(position));
                 getActivity().startActivity(i);

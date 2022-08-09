@@ -55,7 +55,7 @@ public class DialogAgregarArchivo extends android.app.DialogFragment{
                 new View.OnClickListener() {
                     @Override public void onClick(View v)
                     {
-                        Log.e("DEBUG_CANCEL", "onClick: closing dialog");
+//                        Log.e("DEBUG_CANCEL", "onClick: closing dialog");
                         getDialog().dismiss();
                     }
                 });
@@ -65,7 +65,7 @@ public class DialogAgregarArchivo extends android.app.DialogFragment{
                     @Override public void onClick(View v)
                     {
 
-                        Log.e("DEBUG_OK", "onClick: capturing input");
+//                        Log.e("DEBUG_OK", "onClick: capturing input");
 
                         if(comentarioNuevo.getText().toString().isEmpty() || linkNuevo.getText().toString().isEmpty()){
                             Toast.makeText(getActivity(),"Ingrese algo",Toast.LENGTH_LONG).show();

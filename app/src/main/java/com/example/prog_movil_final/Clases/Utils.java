@@ -31,7 +31,7 @@ public class Utils {
     public static void loadDatabase(Context context){
         DBHandler db = new DBHandler(context);
 
-        Log.e("DDEBUG_CREACION","");
+//        Log.e("DDEBUG_CREACION","");
         //Piso 0 -> Planta Baja
         db.insertAula("Aula 1",0, R.drawable.aula1_pb);
         db.insertAula("Aula 2",0,R.drawable.aula2_pb);

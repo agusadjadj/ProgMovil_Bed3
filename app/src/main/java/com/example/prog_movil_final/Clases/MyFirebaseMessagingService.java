@@ -27,7 +27,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         new Handler().post(new Runnable() {
             @Override
             public void run() {
-                Log.e("DEBUG_LATER",remoteMessage.getNotification().getTitle().toString());
+//                Log.e("DEBUG_LATER",remoteMessage.getNotification().getTitle().toString());
                 Toast.makeText(getBaseContext(),remoteMessage.getNotification().getTitle(), Toast.LENGTH_LONG).show();
             }
         });

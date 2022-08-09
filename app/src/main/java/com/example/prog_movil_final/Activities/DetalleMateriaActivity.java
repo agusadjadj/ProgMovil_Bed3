@@ -24,6 +24,7 @@ import com.example.prog_movil_final.Dialogs.DialogAgregarComentario;
 import com.example.prog_movil_final.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -54,8 +55,8 @@ public class DetalleMateriaActivity extends AppCompatActivity implements DialogA
     TextView nombMat;
     TextView horaMat;
     Button suscribMat;
-    Button agregarComentario;
-    Button agregarArchivo;
+    FloatingActionButton agregarComentario;
+    FloatingActionButton agregarArchivo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +76,6 @@ public class DetalleMateriaActivity extends AppCompatActivity implements DialogA
         //Me traigo la materia a la cual se le hizo click para luego buscar y utilizar
         Bundle extrasInt = getIntent().getExtras();
         nombreMateria = extrasInt.getString("nombreMateria");
-        Log.e("DEBUG_MATERIA_DETALLE",nombreMateria);
 
         getSuscripcion();
         //ToDo: Hacer algo cuando las listas están vacias.
@@ -227,7 +227,7 @@ public class DetalleMateriaActivity extends AppCompatActivity implements DialogA
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         nombMat.setText(nombreMateria);
                         if(task.getResult().get("hours") != null){
-                            horaMat.append(": " + task.getResult().get("hours").toString());
+                            horaMat.append(task.getResult().get("hours").toString());
                         }
                     }
                 });
@@ -252,7 +252,7 @@ public class DetalleMateriaActivity extends AppCompatActivity implements DialogA
                             }
                             //Cargo en la lista lo que me traje de la db
                             ListView commentsList = (ListView) findViewById(R.id.detalleListaComentarios);
-                            comAdapter = new ReviewAdapter(DetalleMateriaActivity.this,reviews);
+                            comAdapter = new ReviewAdapter(DetalleMateriaActivity.this,reviews,false);
                             commentsList.setAdapter(comAdapter);
                         }
 

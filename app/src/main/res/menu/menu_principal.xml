@@ -2,24 +2,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_Home"
-        android:icon="@drawable/common_google_signin_btn_icon_dark_normal_background"
-        android:title="Home" />
+        android:icon="@drawable/ic_home"
+        android:title="Inicio" />
     <item
         android:id="@+id/nav_Noticias"
-        android:icon="@drawable/common_google_signin_btn_icon_dark_normal_background"
+        android:icon="@drawable/ic_newspaper"
         android:title="Noticias" />
     <item
         android:id="@+id/nav_Clases"
-        android:icon="@drawable/common_google_signin_btn_icon_dark_normal_background"
+        android:icon="@drawable/ic_horarios"
         android:title="Clases" />
 
     <item
         android:id="@+id/nav_Materias"
-        android:icon="@drawable/common_google_signin_btn_icon_dark_normal_background"
+        android:icon="@drawable/ic_materias"
         android:title="Materias" />
     <item
         android:id="@+id/nav_aulas"
-        android:icon="@drawable/common_google_signin_btn_icon_dark_normal_background"
+        android:icon="@drawable/ic_maps"
         android:title="Aulas" />
 
 </menu>

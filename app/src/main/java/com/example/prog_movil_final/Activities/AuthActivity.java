@@ -47,43 +47,8 @@ public class AuthActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_screen);
 
-        Button mButtonEnter = findViewById(R.id.mButtonEnter);
-        EditText mLoginUser = findViewById(R.id.mLoginUser);
-        EditText mLoginPass = findViewById(R.id.mLoginPass);
         Button mButtonGoogle = findViewById(R.id.mButtonGoogle);
-
-        //----Ingresar con un usuario creado
-        mButtonEnter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Si el usuario y contraseña no están vacios..
-                if(!mLoginUser.getText().toString().isEmpty() && !mLoginPass.getText().toString().isEmpty()){
-                    //Se ingresa con los datos ingresados.
-                    FirebaseAuth.getInstance()
-                            .signInWithEmailAndPassword(mLoginUser.getText().toString(),
-                                    mLoginPass.getText().toString()).addOnCompleteListener(AuthActivity.this, new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if(task.isSuccessful()){    //Si salio bien
-
-
-
-                                        //Paso al Home.
-                                        Intent home = new Intent(AuthActivity.this, HomeActivity.class);
-                                        home.putExtra("email",mLoginUser.getText().toString());
-                                        startActivity(home);
-                                        finish();
-                                    }else{                      //Si salio bien't
-                                        showAlert();
-                                    }
-                                }
-                            });
-
-                }
-
-
-            }
-        });
+        
 
         //----Comprobar si hay una sesión activa
         SharedPreferences prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE);

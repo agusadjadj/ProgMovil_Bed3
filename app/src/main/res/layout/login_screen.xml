@@ -39,91 +39,20 @@
             android:layout_below="@id/mTextUNL"
             />
 
-
-        <TextView
-            android:id="@+id/mTextUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/mTextBED"
-            android:paddingTop="10dp"
-            android:paddingLeft="60dp"
-            android:text="Usuario"
-            android:textSize="25dp"
-            android:fontFamily="@font/itcfranklingothicstd_regular"
-            android:textColor="@color/K_100"
-
-            />
-
-        <TextView
-            android:id="@+id/textPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/mTextUser"
-            android:layout_alignRight="@id/mTextUser"
-            android:paddingTop="10dp"
-            android:text="Contraseña"
-            android:textSize="25dp"
-            android:fontFamily="@font/itcfranklingothicstd_regular"
-            android:textColor="@color/K_100"
-
-            />
-
-        <EditText
-            android:id="@+id/mLoginUser"
-            android:layout_width="250dp"
-            android:layout_height="40dp"
-            android:layout_above="@id/mTextUNL"
-            android:layout_alignBottom="@id/mTextUser"
-            android:layout_toEndOf="@id/mTextUser"
-            android:fontFamily="@font/bree_serif_regular"
-            android:textColor="@color/white" />
-
-        <EditText
-            android:id="@+id/mLoginPass"
-            android:layout_width="250dp"
-            android:layout_height="40dp"
-            android:layout_above="@id/mTextUser"
-            android:layout_alignBottom="@id/textPassword"
-            android:layout_toEndOf="@id/textPassword"
-            android:fontFamily="@font/bree_serif_regular"
-            android:textColor="@color/white" />
-        <Button
-            android:id="@+id/mButtonEnter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/textPassword"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:text="Entrar"
-            android:textColor="@color/K_70"
-            tools:ignore="HardcodedText" />
-
         <Button
             android:id="@+id/mButtonGoogle"
-            android:layout_width="220dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/mButtonEnter"
+            android:layout_below="@id/mTextBED"
             android:layout_centerInParent="true"
-
+            android:fontFamily="@font/itcfranklingothicstd_medio"
+            android:layout_marginTop="50dp"
             android:paddingStart="16dp"
-            android:text="Sign with Google"
-            android:textColor="@color/K_70"
+            android:textSize="20dp"
+            android:text="Ingresar con Google"
+            android:textColor="@color/K_100"
             android:background="@color/white"
             android:textAlignment="textStart" />
-
-        <Button
-            android:id="@+id/mButtonFacebook"
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/mButtonGoogle"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="5dp"
-            android:paddingStart="16dp"
-            android:text="Sign with Facebook"
-            android:textColor="@color/K_70"
-            android:background="@color/white"
-            android:textAlignment="textStart" />
-
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

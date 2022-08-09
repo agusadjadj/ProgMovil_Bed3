@@ -36,7 +36,7 @@ public class JSONRequest {
     }
 
     public ArrayList<EventoAgenda> getNewsEvents() {
-        Log.e("DEBUG_PRE_RETURN_EVENTOS",String.valueOf(newsEvents.size()));
+//        Log.e("DEBUG_PRE_RETURN_EVENTOS",String.valueOf(newsEvents.size()));
             return newsEvents;
     }
 
@@ -60,7 +60,7 @@ public class JSONRequest {
 
                         jsonObject = principalObject.getJSONObject(0); //El indice para todos es 0
                         //Primero tengo que sacar lo que existe en 0.
-                        Log.e("DEBUG_TITLE",jsonObject.getString("title").toString());
+//                        Log.e("DEBUG_TITLE",jsonObject.getString("title").toString());
 
                         event.setTitle(jsonObject.getString("title").toString());          //Seteo el titulo
                         event.setBody(jsonObject.getString("body").toString());            //Seteo el body
@@ -86,7 +86,7 @@ public class JSONRequest {
                         //Agrego a la lista el evento.
                         newsEvents.add(event);
 //                        Log.e("DEBUG_INTERNO_NEWS",String.valueOf(newsEvents.size()));
-                        Log.e("FALLO EN LA ITERACION",String.valueOf(i));
+//                        Log.e("FALLO EN LA ITERACION",String.valueOf(i));
                     }
                     callBack.onSuccess(newsEvents);
 //                    Log.e("DEBUG_POST_PROCESS",String.valueOf(newsEvents.size()));
@@ -115,7 +115,8 @@ public class JSONRequest {
     public void consultarClases(Context contextFragment, final VolleyCallBack callBack){
 
         String nowDay = getDay();
-        Log.e("DEBUG_DDAY",nowDay);
+//        String nowDay = "2022-08-5";
+//        Log.e("DEBUG_DDAY",nowDay);
 
         StringRequest getRequest = new StringRequest(Request.Method.GET, (FICH_WS + nowDay).toString(), new Response.Listener<String>() {
             @Override
@@ -128,7 +129,7 @@ public class JSONRequest {
                     JSONObject jsonObject;      //JSONObject para ir desmenuzando el Array
                     principalObject = jsonResponse.getJSONArray("clases");
 
-                    Log.e("DEBUG_LENGTH_JSON", String.valueOf(principalObject.length()));
+//                    Log.e("DEBUG_LENGTH_JSON", String.valueOf(principalObject.length()));
 
                     for (int i=0; i<principalObject.length(); i++){
                         Clase clase = new Clase();

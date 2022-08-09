@@ -8,7 +8,12 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ListMaterias">
+        android:id="@+id/ListMaterias"
+        android:dividerHeight="4dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        >
+
 
     </ListView>
 

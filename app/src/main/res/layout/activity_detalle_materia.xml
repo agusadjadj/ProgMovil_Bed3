@@ -4,33 +4,102 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.Night">
 
 
     <TextView
+
         android:id="@+id/detalleNombreMateria"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="18dp"
         android:text="Nombre"
-        android:textSize="25sp"
+        android:textAlignment="center"
+        style="@style/TitulosTheme"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/imViewHora"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:src="@drawable/ic_horarios"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detalleNombreMateria"
+        />
+
 
     <TextView
         android:id="@+id/detalleHorarios"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="18dp"
-        android:layout_marginTop="12dp"
-        android:text="Horarios"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
+        style="@style/SubtitulosTheme_14"
+        app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/detalleNombreMateria"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+
+    <ListView
+        android:id="@+id/detalleListaComentarios"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imViewHora"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/detalleAgregarComentarios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="337dp"
+        tools:layout_editor_absoluteY="306dp"
+        app:layout_constraintTop_toBottomOf="@id/detalleListaComentarios"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="-20dp"
+        android:src="@drawable/ic_baseline_add_comment"
+        app:fabSize="normal"
+        android:backgroundTint="@color/white"
+        />
+
+    <ListView
+        android:id="@+id/detalleListaArchivos"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detalleAgregarComentarios"
+        tools:ignore="MissingConstraints" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/detalleAgregarArchivos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="337dp"
+        tools:layout_editor_absoluteY="306dp"
+        app:layout_constraintTop_toBottomOf="@id/detalleListaArchivos"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="-20dp"
+        android:src="@drawable/ic_baseline_attach_file"
+        app:fabSize="normal"
+        android:backgroundTint="@color/white"
+        />
 
     <Button
         android:id="@+id/detalleSuscribirse"
@@ -40,57 +109,10 @@
         android:layout_marginStart="36dp"
         android:layout_marginEnd="36dp"
         android:text="Suscribirse"
-        android:textSize="12sp"
+        style="@style/GeneralButtonTheme"
         android:tag="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/detalleHorarios"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <ListView
-        android:id="@+id/detalleListaComentarios"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detalleSuscribirse"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/detalleAgregarComentarios"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="5dp"
-        android:text="  Agregar Comentario  "
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/detalleListaComentarios"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
-
-    <ListView
-        android:id="@+id/detalleListaArchivos"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detalleAgregarComentarios"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/detalleAgregarArchivos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginTop="5dp"
-        android:text="     Agregar archivos     "
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/detalleListaArchivos"
+        app:layout_constraintTop_toBottomOf="@id/detalleAgregarArchivos"
         app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

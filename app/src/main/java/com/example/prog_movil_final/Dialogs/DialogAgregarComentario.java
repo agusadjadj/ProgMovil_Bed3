@@ -59,7 +59,7 @@ public class DialogAgregarComentario extends android.app.DialogFragment {
                 new View.OnClickListener() {
                     @Override public void onClick(View v)
                     {
-                        Log.d("DEBUG_CANCEL", "onClick: closing dialog");
+//                        Log.d("DEBUG_CANCEL", "onClick: closing dialog");
                         getDialog().dismiss();
                     }
                 });

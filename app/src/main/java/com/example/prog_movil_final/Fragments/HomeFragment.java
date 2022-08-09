@@ -96,14 +96,11 @@ public class HomeFragment extends Fragment {
                             return r1.getAutor().compareTo(r2.getAutor());
                         }
                     });
-                    comAdapter = new ReviewAdapter(getContext(),materiasSuscripto);
+                    comAdapter = new ReviewAdapter(getContext(),materiasSuscripto,true);
 //                    Log.e("DDEBUG_MATERIAS_POST",String.valueOf(materiasSuscripto.size()));
                     listMateriasSuscripto.setAdapter(comAdapter);
                 }
             });
-
-
-
 
 
 
@@ -202,7 +199,7 @@ public class HomeFragment extends Fragment {
     private void loadHorarios(VolleyCallBack<Review> myCallBack,String auxNombreMateria){
 
         //Para cada materia, debo buscar los datos que necesito..
-            Log.e("NOMBREMATERIA",auxNombreMateria);
+//            Log.e("NOMBREMATERIA",auxNombreMateria);
 
             dbFire.collection("Courses")
                     .document(auxNombreMateria)
@@ -214,11 +211,11 @@ public class HomeFragment extends Fragment {
                                 //Me guardo los datos
                                 Review auxMateria = new Review(auxNombreMateria,task.getResult().get("hours").toString());
                                 materiasSuscripto.add(auxMateria);
-                                Log.e("DEBUG_MATERIAS_PRE",auxMateria.getAutor()+" -> "+auxMateria.getComentario());
+//                                Log.e("DEBUG_MATERIAS_PRE",auxMateria.getAutor()+" -> "+auxMateria.getComentario());
                             }else{
                                 Review auxMateria = new Review(auxNombreMateria,"");
                                 materiasSuscripto.add(auxMateria);
-                                Log.e("DEBUG_MATERIAS_PRE",auxMateria.getAutor()+" -> "+auxMateria.getComentario());
+//                                Log.e("DEBUG_MATERIAS_PRE",auxMateria.getAutor()+" -> "+auxMateria.getComentario());
                             }
                             myCallBack.onSuccess(new ArrayList<>());
 

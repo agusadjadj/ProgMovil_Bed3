@@ -29,6 +29,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.example.prog_movil_final.Clases.Utils;
@@ -37,7 +38,7 @@ import com.google.firebase.messaging.FirebaseMessaging;
 public class HomeActivity extends AppCompatActivity {
 
     //Informaciòn extra
-    Button logOut;
+    FloatingActionButton logOut;
     TextView welcomeInfo;
     DBHandler db = new DBHandler(HomeActivity.this);
 
@@ -53,7 +54,7 @@ public class HomeActivity extends AppCompatActivity {
         if(!Utils.doesDatabaseExist(HomeActivity.this,"BedeliaDB")){
             Utils.loadDatabase(HomeActivity.this);
         }
-        logOut = (Button) findViewById(R.id.logoutButton);
+        logOut = (FloatingActionButton) findViewById(R.id.logoutButton);
         welcomeInfo = (TextView) findViewById(R.id.TextPersonName);
 
 
@@ -90,7 +91,7 @@ public class HomeActivity extends AppCompatActivity {
         //Si no es nulo, obtengo los datos que requiera
         if(accData!=null){
 //            Log.e("retrieveDatafromUser",accData.getPhotoUrl().toString());
-            welcomeInfo.setText("Bienvenido "+accData.getDisplayName().toString());
+            welcomeInfo.setText("Bienvenido, "+accData.getDisplayName().toString() + ".");
 //            Log.e("DEBUG_VERSION", String.valueOf(Build.VERSION.SDK_INT));
         }
 
@@ -141,7 +142,7 @@ public class HomeActivity extends AppCompatActivity {
 //                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransact.replace(R.id.FragmentContent, home_Fragm, "");
                     fragmentTransact.commit();
-                    Log.e("DEBUG_SELECT_ITEM",menuItem.toString());
+//                    Log.e("DEBUG_SELECT_ITEM",menuItem.toString());
                     return true;
 
                     //ToDo: (2) Noticias de la facultad.
@@ -150,7 +151,7 @@ public class HomeActivity extends AppCompatActivity {
 //                    FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
                     fragmentTransact.replace(R.id.FragmentContent, agenda_Fragm);
                     fragmentTransact.commit();
-                    Log.e("DEBUG_SELECT_ITEM",menuItem.toString());
+//                    Log.e("DEBUG_SELECT_ITEM",menuItem.toString());
                     return true;
 
                 //ToDo: (3) WS de Bedelía. Al hacer click, muestra que aula es.
