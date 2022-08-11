@@ -9,11 +9,14 @@
     android:layout_height="wrap_content"
     tools:ignore="HardcodedText"
     android:layout_margin="4dp"
-    card_view:cardCornerRadius="4dp">
+    card_view:cardCornerRadius="4dp"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/celeste_fondo"
+        >
 
         <ImageView
             android:id="@+id/imViewHora"
@@ -42,6 +45,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="5dp"
+            android:textColor="@color/K_100"
             android:text="Autor"
             style="@style/SubtitulosTheme_14"
             card_view:layout_constraintBottom_toTopOf="@+id/revComentario"
@@ -57,6 +61,7 @@
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
             android:text="Comentario"
+            android:textColor="@color/K_100"
             style="@style/GeneralTextTheme_12"
             card_view:layout_constraintTop_toBottomOf="@id/revAutor"
             card_view:layout_constraintBottom_toBottomOf="parent"

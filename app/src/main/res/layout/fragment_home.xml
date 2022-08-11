@@ -4,14 +4,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/FICH_color"
+    >
 
 
     <TextView
         android:id="@+id/homeTextMisCursos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="36dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="5dp"
         android:textAlignment="center"
         android:text="Mis Cursos"
         style="@style/SubtitulosTheme_14"
@@ -21,12 +26,15 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <ListView
+        android:background="@drawable/listview_reborde"
+        android:padding="5dp"
+        android:dividerHeight="3dp"
         android:id="@+id/homeMisCursos"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="150dp"
         android:layout_marginStart="36dp"
+
         android:layout_marginEnd="36dp"
-        android:layout_marginTop="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/homeTextMisCursos"
         tools:ignore="MissingConstraints" />
@@ -40,10 +48,9 @@
         android:layout_marginEnd="36dp"
         android:text="Ingresar a SIU Guaraní"
         style="@style/GeneralButtonTheme"
-        android:textSize="12sp"
         android:tag="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/homeMisCursos"
+        app:layout_constraintTop_toBottomOf="@id/buttonZoomMapa"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
@@ -55,7 +62,6 @@
         android:layout_marginTop="5dp"
         style="@style/GeneralButtonTheme"
         android:text="Ingresar a e-fich"
-        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/homeSIU"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,7 +76,6 @@
         android:layout_marginTop="5dp"
         style="@style/GeneralButtonTheme"
         android:text="Agregar Recordatorio"
-        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/homeEfich"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,9 +89,9 @@
         android:layout_marginEnd="5dp"
         android:layout_marginTop="5dp"
         style="@style/GeneralButtonTheme"
+        android:textAlignment="center"
         android:drawableLeft="@drawable/ic_google_maps_icon"
         android:text="Ir a FICH"
-        android:textSize="12sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/homeRecordatorio"
         app:layout_constraintRight_toLeftOf="@+id/guideline"
@@ -109,11 +114,133 @@
         style="@style/GeneralButtonTheme"
         android:drawableLeft="@drawable/ic_google_maps_icon"
         android:text="Ir a Rectorado"
-        android:textSize="12sp"
         app:layout_constraintTop_toBottomOf="@id/homeRecordatorio"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/guideline"
         />
+
+    <TextView
+        android:id="@+id/titUbicacionAulas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ubicación de Aulas"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        style="@style/SubtitulosTheme_14"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/homeMisCursos"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <Spinner
+        android:background="@drawable/rectangulo_campo"
+        app:backgroundTint="@color/FCE_color"
+        android:popupBackground="@drawable/popup_spinner"
+        android:id="@+id/spinnerAulas"
+        android:layout_width="0dp"
+
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titUbicacionAulas"
+        app:layout_constraintBottom_toTopOf="@+id/textPisoNave"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/textPisoPB"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="PB"
+        android:textStyle="bold"
+        android:layout_marginStart="36dp"
+        android:textSize="17sp"
+        style="@style/GeneralTextTheme_12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/homeSIU"
+        app:layout_constraintEnd_toStartOf="@+id/textPisoP1"
+        app:layout_constraintTop_toTopOf="@id/spinnerAulas"
+        />
+
+    <TextView
+        android:id="@+id/textPisoP1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="P1"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        style="@style/GeneralTextTheme_12"
+        app:layout_constraintStart_toEndOf="@+id/textPisoPB"
+        app:layout_constraintBottom_toTopOf="@id/homeSIU"
+        app:layout_constraintEnd_toStartOf="@id/textPisoP2"
+        app:layout_constraintTop_toTopOf="@id/spinnerAulas"
+        />
+
+    <TextView
+        android:id="@+id/textPisoP2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="P2"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        style="@style/GeneralTextTheme_12"
+        app:layout_constraintStart_toEndOf="@+id/textPisoP1"
+        app:layout_constraintBottom_toTopOf="@id/homeSIU"
+        app:layout_constraintEnd_toStartOf="@+id/textPisoP3"
+        app:layout_constraintTop_toTopOf="@id/spinnerAulas"
+        />
+
+    <TextView
+        android:id="@+id/textPisoP3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="P3"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        style="@style/GeneralTextTheme_12"
+        app:layout_constraintStart_toEndOf="@+id/textPisoP2"
+        app:layout_constraintBottom_toTopOf="@id/homeSIU"
+        app:layout_constraintEnd_toStartOf="@+id/textPisoNave"
+        app:layout_constraintTop_toTopOf="@id/spinnerAulas"
+        />
+
+    <TextView
+        style="@style/GeneralTextTheme_12"
+        android:id="@+id/textPisoNave"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="NAVE"
+        android:layout_marginEnd="36dp"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        app:layout_constraintStart_toEndOf="@+id/textPisoP3"
+        app:layout_constraintBottom_toTopOf="@id/homeSIU"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/spinnerAulas"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonZoomMapa"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:text="Ver mapa"
+        android:textSize="12sp"
+        android:theme="@style/Theme.MaterialComponents"
+        app:icon="@drawable/ic_baseline_zoom_in"
+        app:iconTint="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/textPisoP2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textPisoNave"
+        android:backgroundTint="@color/K_80"
+        android:textColor="@color/white"
+        />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

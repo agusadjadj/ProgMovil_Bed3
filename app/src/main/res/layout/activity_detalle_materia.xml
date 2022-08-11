@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/Theme.Night">
+    android:theme="@style/Theme.Night"
+    android:background="@color/FICH_color"
+    >
 
 
     <TextView
@@ -17,6 +19,7 @@
         android:text="Nombre"
         android:textAlignment="center"
         style="@style/TitulosTheme"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -25,7 +28,7 @@
         android:id="@+id/imViewHora"
         android:layout_width="37dp"
         android:layout_height="37dp"
-        android:src="@drawable/ic_horarios"
+        android:src="@drawable/ic_horarios_black"
         android:layout_marginStart="18dp"
         android:layout_marginTop="15dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,6 +50,9 @@
 
 
     <ListView
+        android:background="@drawable/listview_reborde"
+        android:padding="5dp"
+        android:dividerHeight="3dp"
         android:id="@+id/detalleListaComentarios"
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -70,10 +76,13 @@
         android:layout_marginTop="-20dp"
         android:src="@drawable/ic_baseline_add_comment"
         app:fabSize="normal"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/FCE_color"
         />
 
     <ListView
+        android:background="@drawable/listview_reborde"
+        android:padding="5dp"
+        android:dividerHeight="3dp"
         android:id="@+id/detalleListaArchivos"
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -98,7 +107,7 @@
         android:layout_marginTop="-20dp"
         android:src="@drawable/ic_baseline_attach_file"
         app:fabSize="normal"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/FCE_color"
         />
 
     <Button
@@ -111,8 +120,10 @@
         android:text="Suscribirse"
         style="@style/GeneralButtonTheme"
         android:tag="true"
+        android:background="@color/K_80"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/detalleAgregarArchivos"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -88,10 +88,8 @@ public class DBHandler extends SQLiteOpenHelper {
              piso = cursor.getString(cursor.getColumnIndex(KEY_PISO));
         }
         db.close();
-        if(piso.equals("0")) { return "PLANTA BAJA";}
-        if(piso.equals("1") || piso.equals("2") || piso.equals("3")) { return "PISO " + piso; }
-        if(piso.equals("5")) { return "NAVE"; }
-        return "";
+
+        return piso;
 
     }
 

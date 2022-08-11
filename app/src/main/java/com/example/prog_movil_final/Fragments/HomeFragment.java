@@ -16,27 +16,35 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.prog_movil_final.Activities.AuthActivity;
 import com.example.prog_movil_final.Activities.DetalleMateriaActivity;
 import com.example.prog_movil_final.Activities.HomeActivity;
 import com.example.prog_movil_final.Activities.SplashScreen;
 import com.example.prog_movil_final.Adapter.ReviewAdapter;
+import com.example.prog_movil_final.Clases.DBHandler;
 import com.example.prog_movil_final.Clases.Review;
 import com.example.prog_movil_final.Clases.Utils;
 import com.example.prog_movil_final.Clases.VolleyCallBack;
 import com.example.prog_movil_final.Dialogs.DialogAgregarCalendario;
 import com.example.prog_movil_final.Dialogs.DialogAgregarComentario;
+import com.example.prog_movil_final.Dialogs.DialogFragmentNoticia;
+import com.example.prog_movil_final.Dialogs.DialogZoomMap;
 import com.example.prog_movil_final.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.ortiz.touchview.TouchImageView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -51,6 +59,14 @@ public class HomeFragment extends Fragment {
     String emailAlumno;
     Button ingresarSIU, ingresarEfich, addRecordatorio, mapFICH, mapRectorado;
     ReviewAdapter comAdapter;
+
+    //Datos para el spinner
+    DBHandler db;
+    Spinner listAulas;
+    ArrayList<String> aulas;    //Lista de la consulta de las aulas
+    TextView tvPB, tvP1, tvP2, tvP3, tvNave;
+    MaterialButton zoomMap;
+    String selectedAula;
 
     public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();
@@ -84,6 +100,7 @@ public class HomeFragment extends Fragment {
             addRecordatorio = view.findViewById(R.id.homeRecordatorio); //Boton para agregar recordatorio
             mapFICH = view.findViewById(R.id.homeMapFICH);  //Boton para ir al intent de map en fich
             mapRectorado = view.findViewById(R.id.homeMapRectorado);    //Boton para ir al intent de map en rectorado
+            zoomMap = view.findViewById(R.id.buttonZoomMapa);   //Boton para hacer zoom
 
             //Tarda mucho cuando abre otra aplicación, hay que crear nuevos threads
             //Me cargo todos los cursos a los que está suscrito
@@ -167,6 +184,114 @@ public class HomeFragment extends Fragment {
                 startActivity(mapIntent);
             }
         });
+
+
+        //Llenar spinner para mostrar los cursos
+        db = new DBHandler(getContext());
+        listAulas = view.findViewById(R.id.spinnerAulas);
+        tvPB = view.findViewById(R.id.textPisoPB);
+        tvP1 = view.findViewById(R.id.textPisoP1);
+        tvP2 = view.findViewById(R.id.textPisoP2);
+        tvP3 = view.findViewById(R.id.textPisoP3);
+        tvNave = view.findViewById(R.id.textPisoNave);
+
+//        db.clearAll();
+//        Utils.loadDatabase(getContext());
+
+        //Me traigo las aulas desde la Base de datos.
+        aulas = new ArrayList<>();
+
+        aulas = db.getAulas();
+        aulas.add(0,"Seleccione un aula...");
+        //Seteo en la lista, todas las aultas
+        ArrayAdapter<String> adapterAulas = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1, aulas);
+        listAulas.setAdapter(adapterAulas);
+
+        listAulas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View contextView, int position, long l) {
+
+                if(position!=0){
+
+                    selectedAula = aulas.get(position);
+                    String selectedPiso = db.getPiso(selectedAula);
+                    Log.e("",selectedPiso);
+                    switch(selectedPiso){
+                        case "0":
+                            tvPB.setAlpha(1.0f);
+                            tvP1.setAlpha(0.3f);
+                            tvP2.setAlpha(0.3f);
+                            tvP3.setAlpha(0.3f);
+                            tvNave.setAlpha(0.3f);
+                            break;
+                        case "1":
+                            tvPB.setAlpha(0.3f);
+                            tvP1.setAlpha(1.0f);
+                            tvP2.setAlpha(0.3f);
+                            tvP3.setAlpha(0.3f);
+                            tvNave.setAlpha(0.3f);
+                            break;
+                        case "2":
+                            tvPB.setAlpha(0.3f);
+                            tvP1.setAlpha(0.3f);
+                            tvP2.setAlpha(1.0f);
+                            tvP3.setAlpha(0.3f);
+                            tvNave.setAlpha(0.3f);
+                            break;
+                        case "3":
+                            tvPB.setAlpha(0.3f);
+                            tvP1.setAlpha(0.3f);
+                            tvP2.setAlpha(0.3f);
+                            tvP3.setAlpha(1.0f);
+                            tvNave.setAlpha(0.3f);
+                            break;
+                        case "5":
+                            tvPB.setAlpha(0.3f);
+                            tvP1.setAlpha(0.3f);
+                            tvP2.setAlpha(0.3f);
+                            tvP3.setAlpha(0.3f);
+                            tvNave.setAlpha(1.0f);
+                            break;
+                    }
+                }else {
+                    tvPB.setAlpha(0.3f);
+                    tvP1.setAlpha(0.3f);
+                    tvP2.setAlpha(0.3f);
+                    tvP3.setAlpha(0.3f);
+                    tvNave.setAlpha(0.3f);
+                    selectedAula = "-1";
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
+        zoomMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(selectedAula != null && selectedAula != "-1") {
+                    DialogZoomMap displayMap = new DialogZoomMap();
+                    Bundle args = new Bundle();
+                    //Paso el path de la imagen
+                    args.putString("pathImage", db.getPlano(selectedAula));
+
+                    displayMap.setArguments(args);
+                    //Muestro la ventana emergente.
+                    displayMap.show(getFragmentManager(), "MyTag");
+                }
+
+
+
+            }
+        });
+
+
 
         return view;
     }

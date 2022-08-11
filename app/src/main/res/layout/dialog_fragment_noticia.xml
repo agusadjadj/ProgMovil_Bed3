@@ -11,7 +11,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout
 
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/celeste_fondo"
+    >
 
 
         <TextView
@@ -21,6 +23,7 @@
             android:text="Volanta"
             style="@style/TitulosTheme"
             android:textSize="13sp"
+            android:textColor="@color/K_70"
             android:layout_marginStart="18dp"
             android:layout_marginEnd="18dp"
             android:layout_marginTop="8dp"
@@ -42,9 +45,9 @@
             android:layout_height="wrap_content"
             android:text="FechaHora"
             style="@style/GeneralTextTheme_12"
-            android:textStyle="italic"
             android:paddingTop="2dp"
             android:textSize="10sp"
+            android:textColor="@color/K_70"
             android:layout_marginStart="18dp"
             android:layout_marginEnd="18dp"
             android:layout_marginTop="8dp"
@@ -63,6 +66,7 @@
         style="@style/SubtitulosTheme_14"
         android:textSize="22sp"
         android:textStyle="bold"
+        android:textColor="@color/FCE_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fn_volanta" />
@@ -85,6 +89,7 @@
         android:layout_marginEnd="18dp"
         android:layout_marginTop="18dp"
         android:text="Copete"
+        android:textColor="@color/K_100"
         style="@style/GeneralTextTheme_12"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"

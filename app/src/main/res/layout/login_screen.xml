@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/blue_UNL"
+        android:background="@color/FICH_color"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp"
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:fontFamily="@font/bree_serif_regular"
-            android:text="UNL"
+            android:text="FICH"
             android:textSize="100dp"
             android:textColor="@color/white"
             />
@@ -45,14 +45,45 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/mTextBED"
             android:layout_centerInParent="true"
-            android:fontFamily="@font/itcfranklingothicstd_medio"
+            style="@style/GeneralButtonTheme"
             android:layout_marginTop="50dp"
             android:paddingStart="16dp"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:text="Ingresar con Google"
+            android:drawableLeft="@drawable/ic_google_logo"
             android:textColor="@color/K_100"
             android:background="@color/white"
-            android:textAlignment="textStart" />
+            android:textAlignment="center"
+
+            />
+
+
 
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:fontFamily="@font/itcfranklingothicstd_regular"
+        android:text="Creado por"
+        android:textSize="15dp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/nombrea"
+        />
+
+    <TextView
+        android:id="@+id/nombrea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/itcfranklingothicstd_regular"
+        android:text="Agustín Adjadj"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

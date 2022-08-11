@@ -20,18 +20,21 @@
 
     <!-- Titulos generales, grandes. -->
     <style name="TitulosTheme">
+        <item name="android:textColor"> @color/white </item>
         <item name="android:fontFamily"> @font/itcfranklingothicstd_mediocondensada </item>
         <item name="android:textSize"> 30sp </item>
     </style>
 
     <!-- Subtitulos generales, no tan grandes. -->
     <style name="SubtitulosTheme_14">
+        <item name="android:textColor"> @color/white </item>
         <item name="android:textSize"> 14sp </item>
         <item name="android:fontFamily"> @font/itcfranklingothicstd_medio</item>
     </style>
 
     <!-- Textos generales -->
     <style name="GeneralTextTheme_12">
+        <item name="android:textColor"> @color/white </item>
         <item name="android:textSize"> 12sp </item>
         <item name="android:fontFamily"> @font/itcfranklingothicstd_regular </item>
     </style>
@@ -39,7 +42,7 @@
     <!-- Botones generales -->
     <style name="GeneralButtonTheme" >
         <item name="android:fontFamily"> @font/itcfranklingothicstd_medio </item>
-        <item name="android:textSize"> 15sp </item>
+        <item name="android:textSize"> 13sp </item>
         <item name="android:textAllCaps"> true </item>
         <item name="android:background"> @drawable/rounded_button </item>
     </style>

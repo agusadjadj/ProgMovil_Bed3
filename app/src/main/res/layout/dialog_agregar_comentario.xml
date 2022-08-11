@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/celeste_fondo"
+    >
 
     <TextView
         android:id="@+id/agregarComentarioTitulo"
@@ -13,6 +15,7 @@
         android:text="Agregar comentario"
         android:textSize="20sp"
         style="@style/SubtitulosTheme_14"
+        android:textColor="@color/K_100"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="18dp"
         android:text="Materia"
+        android:textColor="@color/K_100"
         style="@style/GeneralTextTheme_12"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,6 +41,9 @@
         android:hint="Comentario"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/K_100"
+        android:textColor="@color/K_100"
+        android:textColorHint="@color/K_30"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/agregarComentarioMateria" />
 
@@ -49,6 +56,7 @@
         android:layout_marginBottom="10dp"
         android:text="Cancelar"
         android:textSize="12sp"
+        android:layout_marginTop="10dp"
         style="@style/GeneralButtonTheme"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/agregarComentarioComent"
@@ -65,6 +73,7 @@
         android:layout_marginBottom="10dp"
         android:text="Guardar comentario"
         android:textSize="12sp"
+        android:layout_marginTop="10dp"
         style="@style/GeneralButtonTheme"
         app:layout_constraintStart_toEndOf="@id/agregarComentarioCancelar"
         app:layout_constraintTop_toBottomOf="@id/agregarComentarioComent"

@@ -3,13 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:ignore="ExtraText">
+    tools:ignore="ExtraText"
+    android:background="@color/celeste_fondo"
+    >
 
     <TextView
         android:id="@+id/textDialog"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textColor="#FFF"
+        android:textColor="@color/K_100"
+        android:layout_margin="10dp"
+        style="@style/GeneralTextTheme_12"
+        android:textSize="20dp"
         />/>
 
     <Button
@@ -19,6 +24,10 @@
         android:text=" Ok "
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
+        android:layout_below="@+id/textDialog"
+        android:layout_centerHorizontal="true"
+        style="@style/GeneralButtonTheme"
+        android:layout_margin="5dp"
         />
 
 </RelativeLayout>

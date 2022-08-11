@@ -11,6 +11,7 @@
     <color name="K_70">#4D4D4D</color>  //K=70
     <color name="K_80">#333333</color>  //K=80 utilizado p acompañar logo de unidad académica
     <color name="K_100">#000000</color> //K=100
+    <color name="celeste_fondo">#DDFFFF</color>
 
     //Colores de unidades académicas
     <color name="FICH_color">#0079C1</color>        //Color de FICH

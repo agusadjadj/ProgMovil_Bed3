@@ -7,18 +7,14 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.prog_movil_final.Clases.DBHandler;
 import com.example.prog_movil_final.Clases.Utils;
-import com.example.prog_movil_final.Fragments.AulasFragment;
 import com.example.prog_movil_final.Fragments.ClasesFragment;
 import com.example.prog_movil_final.Fragments.FragmentAgendaUNL;
 import com.example.prog_movil_final.Fragments.HomeFragment;
@@ -32,7 +28,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.example.prog_movil_final.Clases.Utils;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 public class HomeActivity extends AppCompatActivity {
@@ -170,13 +165,6 @@ public class HomeActivity extends AppCompatActivity {
                     fragmentTransaction3.commit();
                     return true;
 
-                //ToDo: (5) Navegación a traves de las aulas y su mapa (Con Zoom)
-                case R.id.nav_aulas:
-                    AulasFragment fragment4 = new AulasFragment();
-                    FragmentTransaction fragmentTransaction4 = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction4.replace(R.id.FragmentContent, fragment4, "");
-                    fragmentTransaction4.commit();
-                    return true;
             }
             return false;
         }

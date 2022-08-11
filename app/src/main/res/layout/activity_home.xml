@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".Activities.HomeActivity"
     android:gravity="center"
+    android:background="@color/FICH_color"
     android:orientation="vertical">
 
         <TextView
@@ -40,7 +41,7 @@
         android:layout_gravity="right"
         android:src="@drawable/ic_baseline_logout"
         app:fabSize="mini"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/FCE_color"
         />
 
 
@@ -62,10 +63,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_principal"
         app:itemTextAppearanceActive="@style/SubtitulosTheme_14"
-        app:itemIconTint="@color/FMC_color"
-        android:background="@color/FICH_color"
-        app:itemBackground="@color/FCV_color"
-        app:itemTextColor="@color/K_100"
+        app:itemIconTint="@color/white"
+        android:background="@color/FCE_color"
+        app:itemBackground="@color/FCE_color"
+        app:itemTextColor="@color/white"
         android:paddingStart="5dp"
         android:paddingEnd="5dp"
         />

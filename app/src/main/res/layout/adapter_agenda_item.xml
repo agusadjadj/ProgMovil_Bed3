@@ -11,7 +11,9 @@
         <RelativeLayout
             android:id="@+id/relative"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/celeste_fondo"
+            >
 
             <ImageView
                 android:id="@+id/iconNews"
@@ -39,6 +41,7 @@
                 android:layout_marginEnd="15dp"
                 android:layout_toRightOf="@+id/iconNews"
                 android:paddingLeft="4dp"
+                android:textColor="@color/FCE_color"
                 android:text="Title Goes Here"
                 style="@style/SubtitulosTheme_14"/>
 
@@ -50,7 +53,7 @@
                 android:textSize="15dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="5dp"
-                android:textColor="@color/blue_UNL"
+                android:textColor="@color/K_100"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Description Goes Here"
@@ -70,7 +73,7 @@
                 android:gravity="right"
                 android:paddingTop="10dp"
                 android:text="Fecha"
-                android:textColor="@color/ATE_color"
+                android:textColor="@color/K_30"
                 android:textSize="11dp"
                 android:textStyle="italic"
                 />

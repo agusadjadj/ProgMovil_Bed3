@@ -17,9 +17,5 @@
         android:id="@+id/nav_Materias"
         android:icon="@drawable/ic_materias"
         android:title="Materias" />
-    <item
-        android:id="@+id/nav_aulas"
-        android:icon="@drawable/ic_maps"
-        android:title="Aulas" />
 
 </menu>
